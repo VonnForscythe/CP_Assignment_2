@@ -52,18 +52,18 @@ public class GameManager : MonoBehaviour
             set { _instance = value; }
         }
 
-        public int maxLives = 3;
+        public int maxLives = 5;
 
-        int _score = 0;
-        public int score
-        {
-            get { return _score; }
-            set
-            {
-                _score = value;
-                Debug.Log("Current Score Is: " + _score);
-            }
-        }
+        //int _score = 0;
+        //public int score
+        //{
+        //    get { return _score; }
+        //    set
+        //    {
+        //        _score = value;
+        //        Debug.Log("Current Score Is: " + _score);
+        //    }
+        //}
 
 
         //int _lives;
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
             //        SceneManager.LoadScene("SampleScene");
                        
             if (SceneManager.GetActiveScene().name == "TitleScreen")
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("World1");
             else if (SceneManager.GetActiveScene().name == "EndScreen")
                     SceneManager.LoadScene("TitleScreen");
 
@@ -164,7 +164,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("World1");
         Time.timeScale = 1;
         //curCanvas.themeMusic.SetFloat("Music", curCanvas.cachedVolume);
     }
