@@ -43,104 +43,123 @@ using UnityEngine.Audio;
 
 
 public class GameManager : MonoBehaviour
+{
+    static GameManager _instance = null;
+
+    public static GameManager instance
     {
-        static GameManager _instance = null;
+        get { return _instance; }
+        set { _instance = value; }
+    }
 
-        public static GameManager instance
-        {
-            get { return _instance; }
-            set { _instance = value; }
-        }
+    //public int maxLives = 5;
 
-        public int maxLives = 5;
-
-        //int _score = 0;
-        //public int score
-        //{
-        //    get { return _score; }
-        //    set
-        //    {
-        //        _score = value;
-        //        Debug.Log("Current Score Is: " + _score);
-        //    }
-        //}
+    //int _score = 0;
+    //public int score
+    //{
+    //    get { return _score; }
+    //    set
+    //    {
+    //        _score = value;
+    //        Debug.Log("Current Score Is: " + _score);
+    //    }
+    //}
 
 
-        //int _lives;
-        //public int lives
-        //{
-        //    get { return _lives; }
-        //    set
-        //    {
-        //        if (_lives > value)
-        //        {
-        //            Respawn();
-        //        }
-        //        _lives = value;
+    //int _lives;
+    //public int lives
+    //{
+    //    get { return _lives; }
+    //    set
+    //    {
+    //        if (_lives > value)
+    //        {
+    //            Respawn();
+    //        }
+    //        _lives = value;
 
-        //        if (_lives > maxLives)
-        //        {
-        //            _lives = maxLives;
-        //        }
-        //        else if (_lives < 0)
-        //        {
-        //            //game over code goes here
-        //        }
+    //        if (_lives > maxLives)
+    //        {
+    //            _lives = maxLives;
+    //        }
+    //        else if (_lives < 0)
+    //        {
+    //            //game over code goes here
+    //        }
 
-        //        Debug.Log("Current Lives Are: " + _lives);
-        //    }
-        //}
+    //        Debug.Log("Current Lives Are: " + _lives);
+    //    }
+    //}
 
-        public GameObject playerInstance;
-        public GameObject playerPrefab;
-        public LevelManager currentLevel;
-        CanvasManager curCanvas;
+   // public GameObject playerInstance;
+    //public GameObject playerPrefab;
+    //public LevelManager currentLevel;
+    CanvasManager curCanvas;
+ 
 
-        // Start is called before the first frame update
-        void Start()
-        {
+
+    void Start()
+    {
         curCanvas = GetComponent<CanvasManager>();
+       
 
         if (instance)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                instance = this;
-                DontDestroyOnLoad(this);
-            }
-        }
-
-        // Update is called once per frame
-        void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+    }
+
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             //    if (SceneManager.GetActiveScene().name == "SampleScene")
             //        SceneManager.LoadScene("TitleScreen");
             //    else if (SceneManager.GetActiveScene().name == "TitleScreen")
             //        SceneManager.LoadScene("SampleScene");
-                       
+
             if (SceneManager.GetActiveScene().name == "TitleScreen")
                 SceneManager.LoadScene("World1");
             else if (SceneManager.GetActiveScene().name == "EndScreen")
-                    SceneManager.LoadScene("TitleScreen");
+                SceneManager.LoadScene("TitleScreen");
 
-    }
 
-        if (Input.GetKeyDown(KeyCode.Backspace))
-                QuitGame();
+
         }
 
-        public void QuitGame()
-        {
+        if (Input.GetKeyDown(KeyCode.Backspace))
+            QuitGame();
+
+
+        //if (PC.currentHealth <= 0)
+        //{
+
+        //    if (SceneManager.GetActiveScene().name == "World1")
+        //        SceneManager.LoadScene("EndScreen");
+
+        //}
+    }
+
+
+
+
+
+
+
+    public void QuitGame()
+    {
 #if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
+        EditorApplication.isPlaying = false;
 #else
         Application.Quit();
 #endif
-        }
+    }
 
     //public void SpawnPlayer(Transform spawnLocation)
     //{
@@ -157,10 +176,10 @@ public class GameManager : MonoBehaviour
     //    }
     //}
 
-    public void Respawn()
-        {
-            playerInstance.transform.position = currentLevel.spawnLocation.position;
-        }
+    //public void Respawn()
+    //{
+    //    playerInstance.transform.position = currentLevel.spawnLocation.position;
+    //}
 
     public void StartGame()
     {
@@ -174,3 +193,4 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("TitleScreen");
     }
 }
+

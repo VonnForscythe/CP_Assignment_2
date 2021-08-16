@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Animator))]
@@ -168,11 +169,11 @@ public class PlayerController : MonoBehaviour
 
         //}
 
-        //if (Input.GetKeyDown(KeyCode.Alpha2))
-        //{
-        //    animator.SetBool("isDead", true);
+        if (currentHealth <= 0)
+        {
+            animator.SetBool("isDead", true);
 
-        //}
+        }
 
 
 
@@ -231,6 +232,28 @@ public class PlayerController : MonoBehaviour
         {
             speed = 4;
         }
+
+        if (other.gameObject.tag == "Death")
+        {
+            Death();
+        }
+
+        if (other.gameObject.tag == "Objective")
+        {
+            Objective();
+        }
+    }
+
+ void Death()
+    {
+        if (SceneManager.GetActiveScene().name == "World1")
+        SceneManager.LoadScene("EndScreen");        
+    }
+
+    void Objective()
+    {
+        if (SceneManager.GetActiveScene().name == "World1")
+            SceneManager.LoadScene("VictoryScreen");
     }
 
     void TakeDamage(int damage)

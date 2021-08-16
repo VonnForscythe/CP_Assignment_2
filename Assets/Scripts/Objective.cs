@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Objective : MonoBehaviour
 {
-    public LevelManager currentLevel;
+    //public LevelManager currentLevel;
 
     private void OnTriggerEnter(Collider collision)
     {

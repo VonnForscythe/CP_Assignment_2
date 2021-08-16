@@ -10,8 +10,9 @@ TagManager:
   - Bounce
   - Health
   - Water
-  - Fire
   - WhatIsSolid
+  - Death
+  - Objective
   layers:
   - Default
   - TransparentFX
