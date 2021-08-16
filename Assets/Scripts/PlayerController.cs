@@ -221,6 +221,16 @@ public class PlayerController : MonoBehaviour
         {
             TakeDamage(1);
         }
+
+        if (other.gameObject.tag == "Health")
+        {
+            Heal(maxHealth);
+        }
+
+        if (other.gameObject.tag == "Water")
+        {
+            speed = 4;
+        }
     }
 
     void TakeDamage(int damage)
@@ -244,11 +254,23 @@ public class PlayerController : MonoBehaviour
         ammoBar.SetAmmo(currentAmmo);
     }
 
+    void Heal(int maxHealth)
+    {
+        currentHealth = maxHealth;
+
+        healthBar.SetHealth(currentHealth);       
+    }
+
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Bounce")
         {
             jumpSpeed = 4;
+        }
+
+        if (other.gameObject.tag == "Water")
+        {
+            speed = 6;
         }
     }
 

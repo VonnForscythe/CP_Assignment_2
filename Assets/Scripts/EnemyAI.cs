@@ -13,7 +13,7 @@ public class EnemyAI : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
-    public int maxHealth = 1;
+    public int maxHealth = 2;
     public int currentHealth;
     public HealthBar healthBar;
     Animator animator;
@@ -65,6 +65,8 @@ public class EnemyAI : MonoBehaviour
         if (currentHealth <= 0)
         {
             animator.SetBool("Death", true);
+            walkPointRange = 0;
+            agent.SetDestination(walkPoint);
         }
     }
 

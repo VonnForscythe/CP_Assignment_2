@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Projectile
   - WhatIsGround
+  - Hazard
+  - Bounce
+  - Health
+  - Water
+  - Fire
+  - WhatIsSolid
   layers:
   - Default
   - TransparentFX
@@ -16,7 +22,7 @@ TagManager:
   - WhatIsGround
   - WhatIsEnemy
   - WhatIsSolid
-  - 
+  - WhatIsPlayer
   - 
   - 
   - 
