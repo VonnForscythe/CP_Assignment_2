@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            fire();
+           // fire();
         }
 
         if (Input.GetButtonDown("Fire2"))

@@ -13,6 +13,7 @@ TagManager:
   - WhatIsSolid
   - Death
   - Objective
+  - Weapon
   layers:
   - Default
   - TransparentFX

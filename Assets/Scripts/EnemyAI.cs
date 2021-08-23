@@ -13,7 +13,7 @@ public class EnemyAI : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
-    public int maxHealth = 2;
+    public int maxHealth = 8;
     public int currentHealth;
     public HealthBar healthBar;
     Animator animator;
