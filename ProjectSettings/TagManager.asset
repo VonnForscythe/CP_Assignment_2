@@ -14,6 +14,8 @@ TagManager:
   - Death
   - Objective
   - Weapon
+  - Reload
+  - Score
   layers:
   - Default
   - TransparentFX

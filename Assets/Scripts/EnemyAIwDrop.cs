@@ -168,7 +168,9 @@ public class EnemyAIwDrop : MonoBehaviour
     private void DestroyEnemy()
     {
         Destroy(gameObject);
-        Rigidbody rb = Instantiate(item, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+        //Rigidbody rb = Instantiate(item, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+        Rigidbody rb = Instantiate(item, transform.position, transform.rotation).GetComponent<Rigidbody>();
+        rb.AddForce(transform.up * 8f, ForceMode.Impulse);
     }
     private void OnDrawGizmosSelected()
     {

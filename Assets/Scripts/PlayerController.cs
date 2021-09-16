@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed;
     public float gravity;
     //public int collectible;
+    public int Scores;
 
     public int maxHealth = 5;
     public int currentHealth;
@@ -241,6 +242,14 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Objective")
         {
             Objective();
+        }
+        if (other.gameObject.tag == "Reload")
+        {
+            reload(maxAmmo);
+        }
+        if (other.gameObject.tag == "Score")
+        {
+            Score.Scores += 100;
         }
     }
 

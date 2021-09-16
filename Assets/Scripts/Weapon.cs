@@ -50,4 +50,18 @@ public class Weapon : MonoBehaviour {
 
         return ammo;
     }
+
+    void OnTriggerEnter(Collider other)
+    {       
+        if (other.gameObject.tag == "Reload")
+        {
+            reload();
+            
+        }
+    }
+
+    void reload()
+    {
+        ammo = 20;        
+    }
 }
